@@ -1,0 +1,48 @@
+<!--<h1>Reactive Form</h1>-->
+<!--<form [formGroup]="form" #SingupForm="ngForm" (ngSubmit)="submit(SingupForm)">-->
+<!-- <div>Name</div>-->
+<!--  <input type="text" formControlName="name" [ngClass]="SingupForm.submitted&&name?.invalid?'field-error':''">-->
+<!--  <div class="error"  *ngIf="(name?.touched|| name?.dirty || SingupForm.submitted)&&name?.invalid">-->
+<!--    <div *ngIf="name?.errors?.['required']">-->
+<!--      Name field is Required-->
+<!--    </div>-->
+<!--    <div *ngIf="name?.errors?.['pattern']">-->
+<!--      Only English alphabets and space allowed-->
+<!--    </div>-->
+<!--    <div *ngIf="name?.errors?.['minlength']">-->
+<!--      Name Field should be minimum {{name?.errors?.['minlength'].requredLength}} characters.-->
+<!--      only{{name?.errors?.['minlength'].requredactualLength}} characters typed-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div><input type="submit" value="SingUp"></div>-->
+<!--</form>-->
+<!--<br><br>-->
+<!--<pre>{{form.value|json}}-->
+<!--</pre>-->
+<!--<div>{{name?.valid}}</div>-->
+<!--<div>{{SingupForm.submitted}}</div>-->
+<h1>User Details</h1>
+<form [formGroup]="User">
+  <div>Id</div>
+  <div><input type="text" placeholder="Enter Your id" formControlName="id"></div>
+  <div>Name</div>
+  <div><input type="text" placeholder="Enter Your Name" formControlName="Name"></div>
+  <div>Email</div>
+  <div><input type="text" placeholder="Enter Your Email" formControlName="Email"></div>
+  <div>Age</div>
+  <div><input type="text" placeholder="Enter Your age" formControlName="age"></div>
+  <div formArrayName="categorys"> Cateroy List
+    <div class="product" *ngFor="let product of categogys.controls ">
+      <div class="cid"> Cateroy  id
+        <input formControlName="cid" type="text">
+      </div> <div class="cname"> Cateroy  Name
+        <input formControlName="cname" type="text">
+      </div>
+      <div><input type="button" value="Remove"></div>
+    </div>
+
+  </div>
+  <div><input type="submit" value="Submit"> </div>
+</form>
+<pre>{{User.value|json}}</pre>
